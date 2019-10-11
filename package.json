@@ -10,6 +10,9 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "path": "^0.12.7",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.10.1",
@@ -22,7 +25,8 @@
     "require": "^2.4.20"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "start-dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
