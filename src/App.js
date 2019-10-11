@@ -1,26 +1,128 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Container, Navbar, Nav } from "react-bootstrap";
+import Footer from "./components/Footer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// ? Admin
+import LoginPage from "./pages/Admin/LoginPage"
+
+// ? Portofolio
+import HomePage from "./pages/Portofolio/HomePage";
+import AboutPage from "./pages/Portofolio/AboutPage";
+import ContactPage from "./pages/Portofolio/ContactPage";
+
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: "My Portofolio",
+            headerLink: [
+                { title: "Home", path: "/" },
+                { title: "About", path: "/about" },
+                { title: "Contact", path: "/contact" }
+            ],
+            home: {
+                title: "Hananto Eko Saputro",
+                subtitle: "Web Developer || Full Stack Developer",
+                text: "Checkout my project below"
+            },
+            about: {
+                title: "About Me",
+                subtitle: "Se my profile",
+                text: "Checkout my profile below"
+            },
+            contact: {
+                title: "Let's Talk",
+                subtitle: "Lets dive",
+                text: "You can meet me in here"
+            }
+        };
+    }
+
+    render() {
+        return (
+            <Router>
+                <Container className="p-0" fluid={true}>
+                    <Navbar className="bg-dark" expand="lg">
+                        {/* Brancd Navbar */}
+                        <Navbar.Brand className="text-light font-weight-light">
+                            {this.state.title}
+                        </Navbar.Brand>
+
+                        {/* Menu Navbar */}
+                        <Navbar.Toggle
+                            className="border-0 bg-light"
+                            aria-controls="navbar-toggle"
+                        />
+                        <Navbar.Collapse id="navbar-toggle">
+                            <Nav className="ml-auto">
+                                <Link className="nav-link text-light" to="/">
+                                    Home
+                                </Link>
+                                <Link
+                                    className="nav-link text-light"
+                                    to="/about"
+                                >
+                                    About Me
+                                </Link>
+                                <Link
+                                    className="nav-link text-light"
+                                    to="/contact"
+                                >
+                                    Contact
+                                </Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+
+                    <Route
+                        path="/"
+                        exact
+                        render={() => (
+                            <HomePage
+                                title={this.state.home.title}
+                                subtitle={this.state.home.subtitle}
+                                text={this.state.home.text}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/about"
+                        exact
+                        render={() => (
+                            <AboutPage
+                                title={this.state.about.title}
+                                subtitle={this.state.about.subtitle}
+                                text={this.state.about.text}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/contact"
+                        exact
+                        render={() => (
+                            <ContactPage
+                                title={this.state.contact.title}
+                                subtitle={this.state.contact.subtitle}
+                                text={this.state.contact.text}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/login"
+                        exact
+                        render={() => (
+                            <LoginPage />
+                        )}
+                    />
+
+                    <Footer />
+                </Container>
+            </Router>
+        );
+    }
 }
 
 export default App;
