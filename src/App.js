@@ -26,12 +26,12 @@ class App extends React.Component {
             home: {
                 title: "Hananto Eko Saputro",
                 subtitle: "Web Developer | Mobile Hybrid Debeloper | Full Stack Developer",
-                text: "Checkout my project below"
+                text: "Let's see what i have done"
             },
             about: {
                 title: "About Me",
                 subtitle: "Se my profile",
-                text: "Checkout my profile below"
+                text: ""
             },
             contact: {
                 title: "Let's Talk",

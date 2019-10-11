@@ -47,7 +47,7 @@ class Corousel extends React.Component {
     render() {
         return (
             <Container fluid={true}>
-                <Row className="justify-content-around">
+                <Row className="justify-content-between">
                     {this.makeItems(this.state.items)}
                 </Row>
             </Container>
