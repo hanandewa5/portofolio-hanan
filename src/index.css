@@ -12,6 +12,18 @@ code {
     monospace;
 }
 
+.g-title {
+  font-size: 6vw;
+}
+
+.g-subtitle {
+  font-size: 3.6vw;
+}
+
+.g-text {
+  font-size: 3vw;
+}
+
 .g-card {
   margin: 20px;
 }
