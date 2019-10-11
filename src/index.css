@@ -27,6 +27,8 @@ code {
 .g-card-info {
   margin-top: 10px;
   min-height: 100px;
+  width: 300px;
+  text-align: justify;
 }
 
 .g-card-title {
