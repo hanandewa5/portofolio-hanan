@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-let ticking = false;
 
 function Header(props) {
     const [trigger, setTrigger] = useState(0);
@@ -15,7 +14,7 @@ function Header(props) {
         } else {
             setTrigger(1);
         }
-    });
+    },[]);
 
     useEffect(() => {
         const { innerWidth } = window;
@@ -23,9 +22,10 @@ function Header(props) {
         if(innerWidth > 600){
             window.addEventListener("scroll", handleScroll);
         } else {
+            console.log('a');
             setTrigger(1);
         }
-    });
+    },[handleScroll]);
 
     return (
         <Navbar
