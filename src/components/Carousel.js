@@ -47,9 +47,11 @@ class Corousel extends React.Component {
     render() {
         return (
             <Container fluid={true}>
-                <Row className="justify-content-between">
-                    {this.makeItems(this.state.items)}
-                </Row>
+                <div className="g-wrap">
+                    <Row className="g-carousel">
+                        {this.makeItems(this.state.items)}
+                    </Row>
+                </div>
             </Container>
         );
     }

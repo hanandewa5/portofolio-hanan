@@ -22,7 +22,8 @@
     "react-spring": "^8.0.27",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "node server.js",

@@ -47,7 +47,7 @@ class App extends React.Component {
                 <Container className="p-0" fluid={true}>
                     <Navbar className="bg-dark" expand="lg">
                         {/* Brancd Navbar */}
-                        <Navbar.Brand className="text-light font-weight-light">
+                        <Navbar.Brand className="text-light font-weight-light font-montserrat">
                             {this.state.title}
                         </Navbar.Brand>
 
@@ -58,17 +58,17 @@ class App extends React.Component {
                         />
                         <Navbar.Collapse id="navbar-toggle">
                             <Nav className="ml-auto">
-                                <Link className="nav-link text-light" to="/">
+                                <Link className="nav-link text-light font-montserrat" to="/">
                                     Home
                                 </Link>
                                 <Link
-                                    className="nav-link text-light"
+                                    className="nav-link text-light font-montserrat"
                                     to="/about"
                                 >
                                     About Me
                                 </Link>
                                 <Link
-                                    className="nav-link text-light"
+                                    className="nav-link text-light font-montserrat"
                                     to="/contact"
                                 >
                                     Contact

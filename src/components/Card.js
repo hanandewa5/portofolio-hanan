@@ -13,7 +13,15 @@ function Card(props) {
                 src={configConstants.urlApi + props.item.imgSrc}
                 alt={props.item.imgSrc}
             />
-            {props.item.selected && (
+            <CardInfo
+                title={props.item.title}
+                projectType={props.item.projecttype}
+                tool={props.item.tool}
+                platform={props.item.platform}
+                subtitle={props.item.subtitle}
+                link={props.item.link}
+            />
+            {/* {props.item.selected && (
                 <CardInfo
                     title={props.item.title}
                     projectType={props.item.projecttype}
@@ -22,7 +30,7 @@ function Card(props) {
                     subtitle={props.item.subtitle}
                     link={props.item.link}
                 />
-            )}
+            )} */}
         </div>
     );
 }
