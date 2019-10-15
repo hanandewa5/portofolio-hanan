@@ -8,13 +8,20 @@ class Corousel extends React.Component {
         super(props);
 
         this.state = {
-            items: []
+            items: [
+                {id : 1},
+                {id : 2},
+                {id : 3},
+                {id : 4},
+            ]
         };
     }
 
     componentDidMount() {
         portofolioService.getPortofolio().then(data => {
-            this.setState({ items: data });
+            setTimeout(() => {
+                this.setState({ items: data });
+            }, 2000);
         });
     }
 
@@ -38,7 +45,7 @@ class Corousel extends React.Component {
                 <Card
                     key={key}
                     item={item}
-                    onClick={e => this.handleCardClick(item.id, e)}
+                    onClick={e => this.handleCardClick(item.id, e)} //disable sementara
                 />
             );
         });

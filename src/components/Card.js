@@ -1,6 +1,7 @@
 import React from "react";
 import CardInfo from "./CardInfo";
 import { configConstants } from "../_constants/config_constant";
+import Shimmer from 'react-shimmer-effect';
 
 function Card(props) {
     return (
@@ -8,11 +9,17 @@ function Card(props) {
             className="d-inline-block g-card"
             onClick={e => props.onClick(props.item)}
         >
-            <img
-                className="g-card-image"
-                src={configConstants.urlApi + props.item.imgSrc}
-                alt={props.item.imgSrc}
-            />
+            {props.item.imgSrc ? (
+                <img
+                    className="g-card-image"
+                    src={configConstants.urlApi + props.item.imgSrc}
+                    alt={props.item.imgSrc}
+                />
+            ) : (
+                <Shimmer>
+                    <div className="g-card-image-shimmer" />
+                </Shimmer>
+            )}
             <CardInfo
                 title={props.item.title}
                 projectType={props.item.projecttype}

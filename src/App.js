@@ -1,23 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import Footer from "./components/Footer";
-
-// ? Admin
-import LoginPage from "./pages/Admin/LoginPage"
-
-// ? Portofolio
-import HomePage from "./pages/Portofolio/HomePage";
-import AboutPage from "./pages/Portofolio/AboutPage";
-import ContactPage from "./pages/Portofolio/ContactPage";
-
+import { BrowserRouter as Router } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import Footer from "./components/_partials/Footer";
+import Header from "./components/_partials/Header";
+import Routes from './_routes/Routes';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            title: "My Portofolio",
             headerLink: [
                 { title: "Home", path: "/" },
                 { title: "About", path: "/about" },
@@ -45,78 +37,9 @@ class App extends React.Component {
         return (
             <Router>
                 <Container className="p-0" fluid={true}>
-                    <Navbar className="bg-dark" expand="lg">
-                        {/* Brancd Navbar */}
-                        <Navbar.Brand className="text-light font-weight-light font-montserrat">
-                            {this.state.title}
-                        </Navbar.Brand>
+                    <Header />
+                    <Routes />
 
-                        {/* Menu Navbar */}
-                        <Navbar.Toggle
-                            className="border-0 bg-light"
-                            aria-controls="navbar-toggle"
-                        />
-                        <Navbar.Collapse id="navbar-toggle">
-                            <Nav className="ml-auto">
-                                <Link className="nav-link text-light font-montserrat" to="/">
-                                    Home
-                                </Link>
-                                <Link
-                                    className="nav-link text-light font-montserrat"
-                                    to="/about"
-                                >
-                                    About Me
-                                </Link>
-                                <Link
-                                    className="nav-link text-light font-montserrat"
-                                    to="/contact"
-                                >
-                                    Contact
-                                </Link>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Navbar>
-
-                    <Route
-                        path="/"
-                        exact
-                        render={() => (
-                            <HomePage
-                                title={this.state.home.title}
-                                subtitle={this.state.home.subtitle}
-                                text={this.state.home.text}
-                            />
-                        )}
-                    />
-                    <Route
-                        path="/about"
-                        exact
-                        render={() => (
-                            <AboutPage
-                                title={this.state.about.title}
-                                subtitle={this.state.about.subtitle}
-                                text={this.state.about.text}
-                            />
-                        )}
-                    />
-                    <Route
-                        path="/contact"
-                        exact
-                        render={() => (
-                            <ContactPage
-                                title={this.state.contact.title}
-                                subtitle={this.state.contact.subtitle}
-                                text={this.state.contact.text}
-                            />
-                        )}
-                    />
-                    <Route
-                        path="/login"
-                        exact
-                        render={() => (
-                            <LoginPage />
-                        )}
-                    />
 
                     <Footer />
                 </Container>
