@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+let ticking = false;
 
-function Header() {
+function Header(props) {
+    const [trigger, setTrigger] = useState(0);
+
+    const handleScroll = useCallback(() => {
+        const { innerWidth } = window;
+
+        if (innerWidth > 600) {
+            let lastScrollY = parseFloat(window.scrollY / 300);
+            setTrigger(lastScrollY);
+        } else {
+            setTrigger(1);
+        }
+    });
+
+    useEffect(() => {
+        const { innerWidth } = window;
+
+        if(innerWidth > 600){
+            window.addEventListener("scroll", handleScroll);
+        } else {
+            setTrigger(1);
+        }
+    });
+
     return (
-        <Navbar className="bg-dark" expand="lg">
+        <Navbar
+            style={{ backgroundColor: `rgba(52,58,64,${trigger})` }}
+            expand="sm"
+            fixed="top"
+        >
             {/* Brancd Navbar */}
             <Navbar.Brand className="text-light font-weight-light font-montserrat">
                 My Portofolio

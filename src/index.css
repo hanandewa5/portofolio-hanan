@@ -12,6 +12,10 @@ code {
         monospace;
 }
 
+.navBg {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .font-montserrat {
     font-family: "Montserrat";
 }
@@ -19,15 +23,17 @@ code {
 .g-title {
     font-size: 6vw;
     font-family: "Montserrat";
+    text-align: center;
 }
 
 .g-subtitle {
     font-size: 3.6vw;
     font-family: "Montserrat";
+    text-align: center;
 }
 
 .g-text {
-    font-size: 3vw;
+    font-size: 2vw;
     font-family: "Montserrat";
 }
 
